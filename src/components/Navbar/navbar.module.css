@@ -1,4 +1,7 @@
 nav {
-    background-color: aqua;
-    grid-area: n;
+  background-color: aqua;
+  grid-area: n;
+}
+.activeLink {
+  color: red;
 }

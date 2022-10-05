@@ -1,5 +1,5 @@
 import React from "react";
-import "./navbar.module.css";
+import s from "./navbar.module.css";
 import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
@@ -9,7 +9,9 @@ const Navbar = (props) => {
       <ul>
         {props.navs.map((item) => (
           <li>
-            <Link to={item.path}>{item.title}</Link>
+            <Link activeClassName={s.activeLink} to={item.path}>
+              {item.title}
+            </Link>
           </li>
         ))}
       </ul>
