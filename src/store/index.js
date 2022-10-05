@@ -14,7 +14,18 @@ const store = {
                 path: '/profile'
             }
         ]
-    }
+    },
+    
 }
     
+export const addPost = (newMessage) => {
+    let newPost = 
+       { 
+        message: newMessage,
+        likesCount: 0
+
+    }
+    store.state.posts.push(newPost);
+    
+}
 export default store
