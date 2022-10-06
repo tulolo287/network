@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "./Post";
 import addNewPost from "../../store";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../store";
 
 const Posts = (props) => {
   let newPostElement = React.createRef();
@@ -10,12 +11,13 @@ const Posts = (props) => {
   ));
 
   const addPostHandler = () => {
-    props.dispatch({ type: "ADD-POST" });
+    props.dispatch(addPostActionCreator());
   };
 
   const onPostChange = () => {
     let newText = newPostElement.current.value;
-    props.dispatch({ type: "UPDATE-POST", newText });
+    props.dispatch(updateNewPostTextActionCreator(newText));
+
   };
 
   return (

@@ -23,7 +23,7 @@ function App(props) {
               />
             }
           />
-          <Route path="/messages" element={<Messages />} />
+          <Route path="/messages" element={<Messages dispatch={props.store.dispatch.bind(props.store)} dialogs={props.store.getState().dialogs} athued={true} />} />
         </Routes>
       </Content>
     </div>

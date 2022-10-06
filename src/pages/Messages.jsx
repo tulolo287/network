@@ -1,11 +1,11 @@
 import React from "react";
 import Dialogs from "../components/Dialogs";
 
-const Messages = () => {
+const Messages = (props) => {
   return (
     <div>
       Messages
-      <Dialogs />
+      <Dialogs dialogs={props.dialogs} dispatch={props.dispatch} />
     </div>
   );
 };
