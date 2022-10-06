@@ -7,14 +7,6 @@ import Profile from "./pages/Profile";
 import Messages from "./pages/Messages";
 
 function App(props) {
-  const ProfilePosts = () => {
-    return (
-      <div>
-        <Profile posts={props.store.state.posts} />
-      </div>
-    );
-  };
-
   return (
     <div className="App">
       <Header />
@@ -23,7 +15,13 @@ function App(props) {
         <Routes>
           <Route
             path="/profile"
-            element={<Profile posts={props.store.state.posts} athued={true} />}
+            element={
+              <Profile
+                posts={props.store.state.posts}
+                addNewPost={props.store.state.addNewPost}
+                athued={true}
+              />
+            }
           />
           <Route path="/messages" element={<Messages />} />
         </Routes>

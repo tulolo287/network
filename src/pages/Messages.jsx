@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Dialogs from "../components/Dialogs";
 
 const Messages = () => {
   return (
-    <div>Messages</div>
-  )
-}
+    <div>
+      Messages
+      <Dialogs />
+    </div>
+  );
+};
 
-export default Messages
+export default Messages;
