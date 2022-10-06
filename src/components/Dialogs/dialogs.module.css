@@ -1,7 +1,12 @@
 .dialog__wrapper {
   display: grid;
+  grid-template-areas: "p t";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 .dialog__person {
+  grid-area: p;
 }
 .dialog__text {
+  grid-area: t;
 }

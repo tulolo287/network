@@ -10,15 +10,15 @@ function App(props) {
   return (
     <div className="App">
       <Header />
-      <Navbar navs={props.store.state.navs} />
+      <Navbar navs={props.store.getState().navs} />
       <Content>
         <Routes>
           <Route
             path="/profile"
             element={
               <Profile
-                posts={props.store.state.posts}
-                addNewPost={props.store.state.addNewPost}
+                posts={props.store.getState().posts}
+                dispatch={props.store.dispatch.bind(props.store)}
                 athued={true}
               />
             }

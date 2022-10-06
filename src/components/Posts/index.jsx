@@ -1,6 +1,6 @@
 import React from "react";
 import Post from "./Post";
-import { addPost, updateNewPostText } from "../../store";
+import addNewPost from "../../store";
 
 const Posts = (props) => {
   let newPostElement = React.createRef();
@@ -10,15 +10,12 @@ const Posts = (props) => {
   ));
 
   const addPostHandler = () => {
-    let text = newPostElement.current.value;
-    addPost(text);
-    console.log(props.addNewPost);
-    updateNewPostText("");
+    props.dispatch({ type: "ADD-POST" });
   };
 
   const onPostChange = () => {
     let newText = newPostElement.current.value;
-    updateNewPostText(newText);
+    props.dispatch({ type: "UPDATE-POST", newText });
   };
 
   return (
@@ -26,7 +23,7 @@ const Posts = (props) => {
       <textarea
         onChange={onPostChange}
         ref={newPostElement}
-        value={props.addNewPost}
+        value={addNewPost.getState().addNewPost}
       ></textarea>
       <button onClick={addPostHandler}>Add post</button>
       {postElements}
