@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import Messages from "./pages/Messages";
 
 function App(props) {
+  debugger;
   return (
     <div className="App">
       <Header />
@@ -23,7 +24,16 @@ function App(props) {
               />
             }
           />
-          <Route path="/messages" element={<Messages dispatch={props.store.dispatch.bind(props.store)} dialogs={props.store.getState().dialogs} athued={true} />} />
+          <Route
+            path="/messages"
+            element={
+              <Messages
+                dispatch={props.store.dispatch.bind(props.store)}
+                dialogs={props.store.getState().dialogs}
+                athued={true}
+              />
+            }
+          />
         </Routes>
       </Content>
     </div>
