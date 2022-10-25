@@ -1,12 +1,15 @@
 import React from "react";
-import Posts from "../components/Posts";
+import PostsContainer from "../components/Posts/PostsContainer";
 import ProfileInfo from "../components/ProfileInfo";
 
 const Profile = (props) => {
   return (
     <>
       <ProfileInfo />
-      <Posts profileReducer={props.profileReducer} dispatch={props.dispatch} />
+      <PostsContainer
+        profileReducer={props.profileReducer}
+        dispatch={props.dispatch}
+      />
     </>
   );
 };
