@@ -7,18 +7,17 @@ import Profile from "./pages/Profile";
 import Messages from "./pages/Messages";
 
 function App(props) {
-  debugger;
   return (
     <div className="App">
       <Header />
-      <Navbar navs={props.store.getState().navs} />
+      <Navbar navs={props.state.profileReducer.navs} />
       <Content>
         <Routes>
           <Route
             path="/profile"
             element={
               <Profile
-                posts={props.store.getState().posts}
+                profileReducer={props.state.profileReducer}
                 dispatch={props.store.dispatch.bind(props.store)}
                 athued={true}
               />
@@ -29,7 +28,7 @@ function App(props) {
             element={
               <Messages
                 dispatch={props.store.dispatch.bind(props.store)}
-                dialogs={props.store.getState().dialogs}
+                dialogs={props.state.messageReducer.dialogs}
                 athued={true}
               />
             }

@@ -31,15 +31,15 @@ const messageReducer = (state = initialState, action) => {
     case ADD_NEW_MESSAGE:
       let newMessage = {
         id: 4,
-        text: this._state.dialogs.newMessage
+        text: state.dialogs.newMessage
       };
-      this._state.dialogs.messages.push(newMessage);
-      this._state.dialogs.newMessage = "";
-      this._callSubscriber();
+      state.dialogs.messages.push(newMessage);
+      state.dialogs.newMessage = "";
+
       return state;
     case UPDATE_NEW_MESSAGE_TEXT:
-      this._state.dialogs.newMessage = action.message;
-      this._callSubscriber();
+      state.dialogs.newMessage = action.message;
+
       return state;
     default:
       return state;
