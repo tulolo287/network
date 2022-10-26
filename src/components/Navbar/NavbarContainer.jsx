@@ -7,6 +7,8 @@ const mapToState = (state) => {
   };
 };
 
-const NavbarContainer = connect(mapToState)(Navbar);
+const mapToDispatch = () => {};
+
+const NavbarContainer = connect(mapToState, mapToDispatch)(Navbar);
 
 export default NavbarContainer;
