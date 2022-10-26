@@ -6,10 +6,7 @@ const Profile = (props) => {
   return (
     <>
       <ProfileInfo />
-      <PostsContainer
-        profileReducer={props.profileReducer}
-        dispatch={props.dispatch}
-      />
+      <PostsContainer />
     </>
   );
 };

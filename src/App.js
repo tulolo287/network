@@ -10,29 +10,11 @@ function App(props) {
   return (
     <div className="App">
       <Header />
-      <Navbar navs={props.state.profileReducer.navs} />
+      <Navbar />
       <Content>
         <Routes>
-          <Route
-            path="/profile"
-            element={
-              <Profile
-                profileReducer={props.state.profileReducer}
-                dispatch={props.store.dispatch.bind(props.store)}
-                athued={true}
-              />
-            }
-          />
-          <Route
-            path="/messages"
-            element={
-              <Messages
-                dispatch={props.store.dispatch.bind(props.store)}
-                dialogs={props.state.messageReducer.dialogs}
-                athued={true}
-              />
-            }
-          />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Content>
     </div>
