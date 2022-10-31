@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Profile from "./pages/Profile";
 import Messages from "./pages/Messages";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
+import Users from "./pages/Users/";
 
 function App(props) {
   return (
@@ -15,6 +16,7 @@ function App(props) {
         <Routes>
           <Route path="/messages" element={<Messages />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Users />} />
         </Routes>
       </Content>
     </div>

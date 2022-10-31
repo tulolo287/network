@@ -25,5 +25,5 @@ store.subscribe(() => {
   let state = store.getState();
   renderApp(state);
 });
-
+window.store = store;
 export default renderApp;
