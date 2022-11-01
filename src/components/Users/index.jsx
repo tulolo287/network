@@ -1,11 +1,11 @@
 import s from './users.module.css'
+import Loading from '../Loading';
+import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
   return (
     <>
-      {props.loading && <div className={s.load}>
-        Loading...
-      </div>}
+      <Loading loading={props.loading}/>
 
       <div>
 
@@ -23,11 +23,14 @@ const Users = (props) => {
             marginTop: "10px"
           }}
         >
+          <NavLink to={`/profile/${user.id}`}>
+          <img className={s.user__image} src={user.image} alt={user.name} />
+          </NavLink>
           <span> Name: {user.firstName}</span>
           <div>
             <span>Status: {user.status}</span>
             <button
-              onClick={() => props.followToggle(!user.followed, user.id)}
+              onClick={() => (user.followed ? props.unfollow(user.id) : props.follow(user.id))}
               style={{ cursor: "pointer" }}
             >
               {user.followed ? "Followed" : "UnFollowed"}

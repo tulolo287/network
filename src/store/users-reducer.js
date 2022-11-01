@@ -53,4 +53,16 @@ const usersReducer = (state = initialState, action) => {
   }
 };
 
+export const follow = (id) => ({ type: "FOLLOW", id })
+
+export const unfollow = (id) => ({ type: "UNFOLLOW", id });
+
+export const setUsers = (users) => ({ type: "SET_USERS", users });
+
+export const setTotalPages = (totalUsers) => ({ type: "SET_TOTAL_PAGES", totalUsers });
+
+export const goToPage = (page) => ({ type: "GO_TO_PAGE", page });
+
+export const setLoading = (loading) => ({ type: "SET_LOADING", loading });
+
 export default usersReducer;

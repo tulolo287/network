@@ -1,0 +1,10 @@
+.load {
+    color: #fff;
+    background-color: rgba(0, 174, 255, 0.657);
+    position: absolute;
+    margin: 0px auto;
+    height: 200px;
+    width: 500px;
+    border-radius: 5px;
+
+}

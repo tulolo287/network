@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
+import { follow, goToPage, setLoading, setTotalPages, setUsers, unfollow } from "../../store/users-reducer.js";
 import Users from "./index.jsx";
 
 class UsersApi extends React.Component {
@@ -40,7 +41,8 @@ class UsersApi extends React.Component {
       users={this.props.users}
       currentPage={this.props.currentPage}
       totalPages={this.props.totalPages}
-      followToggle={this.props.followToggle}
+      follow={this.props.follow}
+      unfollow={this.props.unfollow}
       goToPage={this.props.goToPage}
     />;
   }
@@ -56,27 +58,6 @@ const mapToState = (state) => {
   };
 };
 
-const mapToDispatch = (dispatch) => {
-  return {
-    followToggle: (isFollow, id) => {
-      isFollow
-        ? dispatch({ type: "FOLLOW", id })
-        : dispatch({ type: "UNFOLLOW", id });
-    },
-    setUsers: (users) => {
-      dispatch({ type: "SET_USERS", users });
-    },
-    setTotalPages: (totalUsers) => {
-      dispatch({ type: "SET_TOTAL_PAGES", totalUsers });
-    },
-    goToPage: (page) => {
-      dispatch({ type: "GO_TO_PAGE", page });
-    },
-    setLoading: (loading) => {
-      dispatch({ type: "SET_LOADING", loading });
-    }
-  }
-};
 
-const UsersContainer = connect(mapToState, mapToDispatch)(UsersApi);
+const UsersContainer = connect(mapToState, {follow, unfollow, setUsers, setTotalPages, goToPage, setLoading})(UsersApi);
 export default UsersContainer;

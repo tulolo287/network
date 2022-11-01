@@ -16,7 +16,7 @@ function App(props) {
       <Content>
         <Routes>
           <Route path="/messages" element={<Messages />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile:${id}" element={<Profile />} />
           <Route path="/users" element={<UsersPage />} />
         </Routes>
       </Content>
