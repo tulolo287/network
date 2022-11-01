@@ -1,8 +1,11 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
+const GO_TO_PAGE = "GO_TO_PAGE";
+const SET_LOADING = "SET_LOADING";
 
-let initialState = { users: [], currentPage: 1, totalPages: 20 };
+let initialState = { users: [], loading: false, totalUsers: 100, pageSize: 10, currentPage: 1, totalPages: 5 };
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -31,7 +34,21 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         users: [...action.users]
       };
+    case SET_TOTAL_PAGES:
+      return {
+        ...state,
+        totalPages: Math.ceil(action.totalUsers / state.pageSize)
+      }
+    case GO_TO_PAGE:
+      return {
+        ...state, currentPage: action.page}
+    case SET_LOADING:
+      return {
+        ...state, loading: action.loading
+      }
+    
     default:
+
       return state;
   }
 };

@@ -5,7 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import Profile from "./pages/Profile";
 import Messages from "./pages/Messages";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
-import UsersPage from "./pages/UsersPage/";
+import UsersPage from "./pages/UsersPage";
+
 
 function App(props) {
   return (

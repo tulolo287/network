@@ -6,7 +6,6 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
-const renderApp = (state) => {
   const root = ReactDOM.createRoot(document.getElementById("root"));
   root.render(
     <React.StrictMode>
@@ -17,13 +16,8 @@ const renderApp = (state) => {
       </BrowserRouter>
     </React.StrictMode>
   );
-};
 
-renderApp(store.getState());
 
-store.subscribe(() => {
-  let state = store.getState();
-  renderApp(state);
-});
+
 window.store = store;
-export default renderApp;
+
