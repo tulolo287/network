@@ -15,6 +15,10 @@ const initialState = {
     {
       title: "Profile",
       path: "/profile"
+    },
+    {
+      title: "Users",
+      path: "/users"
     }
   ]
 };

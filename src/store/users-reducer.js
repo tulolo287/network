@@ -1,24 +1,8 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
+const SET_USERS = "SET_USERS";
 
-const initialState = {
-  users: [
-    {
-      id: 1,
-      followed: true,
-      name: "Klkj",
-      status: "I lj  l lj",
-      conutry: "Russia"
-    },
-    {
-      id: 2,
-      followed: false,
-      name: "Rdfsf",
-      status: "E dsfl lj",
-      conutry: "USA"
-    }
-  ]
-};
+let initialState = { users: [] };
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -41,6 +25,11 @@ const usersReducer = (state = initialState, action) => {
           }
           return user;
         })
+      };
+    case SET_USERS:
+      return {
+        ...state,
+        users: [...action.users]
       };
     default:
       return state;
