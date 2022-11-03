@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const Users = (props) => {
-  if (props.users.length === 0) {
-    axios.get("https://jsonplaceholder.typicode.com/users").then((response) => {
-      props.setUsers(response.data);
-    });
-  }
-
   return (
     <>
+      <div>
+        <span>
+          <bold>1</bold>
+        </span>
+        234
+      </div>
       {props.users.map((user) => (
         <div
           style={{
