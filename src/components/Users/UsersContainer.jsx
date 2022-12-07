@@ -1,63 +1,61 @@
-import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
-import { follow, goToPage, setLoading, setTotalPages, setUsers, unfollow } from "../../store/users-reducer.js";
+import {
+   setFollow,
+   setToggleFetching,
+   setCurrentPage,
+   setFollowId,
+   getUsersThunk,
+   setFollowThunk,
+} from "../../store/users-reducer.js";
 import Users from "./index.jsx";
 
 class UsersApi extends React.Component {
+   componentDidMount() {
+      this.props.getUsersThunk(this.props.currentPage, this.props.pageSize);
+   }
 
-  componentDidMount() {
-    //https://dummyjson.com/users
-    //https://jsonplaceholder.typicode.com/users
-    this.props.setLoading(true);
-    axios
-      .get(`https://dummyjson.com/users?skip=${this.props.currentPage * this.props.pageSize}&limit=${this.props.pageSize}`)
-      .then((response) => {
-        this.props.setUsers(response.data.users);
-        console.log(response)
-        this.props.setTotalPages(response.data.total)
-        this.props.setLoading(false)
-      });
+   onPageChanged = (page) => {
+      this.props.getUsersThunk(page, this.props.pageSize);
+   };
 
-
-
-  }
-
-  onPageChanged = (page) => {
-    this.props.setLoading(true)
-    this.props.goToPage(page)
-    axios
-      .get(`https://dummyjson.com/users?skip=${page * this.props.pageSize}&limit=${this.props.pageSize}`)
-      .then((response) => {
-        this.props.setUsers(response.data.users);
-        this.props.setLoading(false);
-      });
-  }
-  render() {
-
-    return <Users
-      loading={this.props.loading}
-      onPageChanged={this.onPageChanged}
-      users={this.props.users}
-      currentPage={this.props.currentPage}
-      totalPages={this.props.totalPages}
-      follow={this.props.follow}
-      unfollow={this.props.unfollow}
-      goToPage={this.props.goToPage}
-    />;
-  }
+   render() {
+      return (
+         <Users
+            loading={this.props.loading}
+            users={this.props.users}
+            currentPage={this.props.currentPage}
+            totalPages={this.props.totalPages}
+            setLoading={this.props.setLoading}
+            follow={this.props.follow}
+            setFollowId={this.props.setFollowId}
+            setCurrentPage={this.props.setCurrentPage}
+            onPageChanged={this.onPageChanged}
+            isToggleFetching={this.props.isToggleFetching}
+            setFollowThunk={this.props.setFollowThunk}
+         />
+      );
+   }
 }
 
 const mapToState = (state) => {
-  return {
-    loading: state.usersReducer.loading,
-    users: state.usersReducer.users,
-    totalPages: state.usersReducer.totalPages,
-    currentPage: state.usersReducer.currentPage,
-    pageSize: state.usersReducer.pageSize
-  };
+   return {
+      loading: state.usersReducer.loading,
+      users: state.usersReducer.users,
+      totalPages: state.usersReducer.totalPages,
+      currentPage: state.usersReducer.currentPage,
+      pageSize: state.usersReducer.pageSize,
+      follow: state.usersReducer.follow,
+      isToggleFetching: state.usersReducer.isToggleFetching,
+   };
 };
 
-
-const UsersContainer = connect(mapToState, {follow, unfollow, setUsers, setTotalPages, goToPage, setLoading})(UsersApi);
+const UsersContainer = connect(mapToState, {
+   setFollow,
+   setToggleFetching,
+   setFollowId,
+   setCurrentPage,
+   getUsersThunk,
+   setFollowThunk,
+})(UsersApi);
 export default UsersContainer;

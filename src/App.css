@@ -6,3 +6,10 @@
   grid-template-columns: 2fr 10fr;
   grid-template-rows: 50px 2fr;
 }
+
+.show {
+   display: block;
+}
+.hide {
+   display: none;
+}

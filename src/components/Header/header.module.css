@@ -1,4 +1,8 @@
 header {
     background-color: gray;
     grid-area: h;
+    
+}
+.header__login {
+    flex: right;
 }
