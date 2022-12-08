@@ -10,31 +10,31 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import RegisterPage from "./pages/RegisterPage";
 import { setUserData } from "./store/auth-reducer";
 import { useEffect } from "react";
-import { connect } from "react-redux";
+import { connect } from "react-redux"; //
 
 function App(props) {
-   useEffect(() => {
-      const user = JSON.parse(localStorage.getItem("user"));
-      console.log("user", user);
-      user && props.setUserData(user);
-   }, []);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log("user", user);
+    user && props.setUserData(user);
+  }, []);
 
-   return (
-      <div className="App">
-         <HeaderContainer />
-         <NavbarContainer />
-         <Content>
-            <Routes>
-               <Route path="/messages" element={<Messages />} />
-               <Route path="/profile/:id" element={<Profile />} />
-               <Route path="/profile" element={<Profile />} />
-               <Route path="/users" element={<UsersPage />} />
-               <Route path="/login" element={<LoginPage />} />
-               <Route path="/register" element={<RegisterPage />} />
-            </Routes>
-         </Content>
-      </div>
-   );
+  return (
+    <div className="App">
+      <HeaderContainer />
+      <NavbarContainer />
+      <Content>
+        <Routes>
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Routes>
+      </Content>
+    </div>
+  );
 }
 const mapToState = (state) => {};
 
