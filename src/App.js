@@ -27,7 +27,6 @@ function App(props) {
             <Routes>
                <Route path="/messages" element={<Messages />} />
                <Route path="/profile/:id" element={<Profile />} />
-               <Route path="/profile" element={<Profile />} />
                <Route path="/users" element={<UsersPage />} />
                <Route path="/login" element={<LoginPage />} />
                <Route path="/register" element={<RegisterPage />} />

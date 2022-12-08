@@ -17,6 +17,7 @@ const mapToState = (state) => {
 };
 
 export const withAuthRedirect = (Component) => {
+
    class withLocation extends React.Component {
       componentDidMount() {}
       render() {
@@ -27,5 +28,6 @@ export const withAuthRedirect = (Component) => {
          }
       }
    }
+
    return connect(mapToState)(withLocation);
 };
